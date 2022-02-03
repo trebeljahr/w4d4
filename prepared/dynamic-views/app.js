@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const xss = require("./xss");
+// const xss = require("./xss");
 
 const PORT = 3000;
 
@@ -27,9 +27,9 @@ app.get("/", (_, res) => {
     },
     todos,
     heading: "<h1>This is html coming from the server</h1>",
-    people: ["Marc", "Julie", "Amit", "Andre"],
-    cities: ["Berlin", "Paris", "Delhi", "Madrid"],
-    xss,
+    people: ["Rahaf", "Julie", "Stephen", "André"],
+    cities: ["Berlin", "Paris?", "Berlin", "Amsterdam"],
+    // xss,
   });
 });
 
