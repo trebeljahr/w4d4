@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{ name }}</h1>
+    <h1>Hello {{ anotherName }}</h1>
+    <h2>#if</h2>
+    {{#if displayCity}}
+        <h2>This is the city: {{city}}</h2>
+    {{/if}}
+    <h2>#if else</h2>
+
+    {{#if displayCity2}}
+       <h2>This is the second city: {{city2}}</h2>
+    {{else}}
+       <h2>I shouldn't display the city</h2>
+    {{/if}}
+
+    <h2>#unless</h2>
+    {{#unless movie}}
+        <h3>No movies here</h3>
+    {{/unless}}
+
+    {{ movie.name }} 
+    {{ movie.protagonist}}
+
+    <h2>#with</h2>
+    {{#with movie}}
+        {{ ../anotherName }}
+        Name: {{name}}
+        Protagonist: {{protagonist}}
+    {{/with}}
+
+    <h2>#each</h2>
+    <ul>
+    {{#each todos}}
+        <li>
+            {{ this }}
+        </li>
+    {{/each}}
+    </ul>
+
+    <h2>@index</h2>
+     <ul>
+    {{#each todos}}
+        <li>
+            {{ plusOne @index  }} {{ this }}
+        </li>
+    {{/each}}
+    </ul>
+
+    <h2>lookup</h2>
+    <ul>
+        {{#each people}}
+            <li>{{ this }} lives in {{ lookup ../cities @index }} 
+            and their favorite movie is {{ lookup ../favoriteMovies @index}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>upper</h2>
+    <h3>Rick says {{ upper "wabaladubdub"}}</h3>
+
+    {{ htmlCode }}
+    {{{ htmlCode }}}
+   
+</body>
+</html>
